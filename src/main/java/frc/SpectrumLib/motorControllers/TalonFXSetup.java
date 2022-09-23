@@ -1,4 +1,4 @@
-//Created by Spectrum3847
+// Created by Spectrum3847
 
 package frc.SpectrumLib.motorControllers;
 
@@ -10,38 +10,40 @@ import com.ctre.phoenix.motorcontrol.can.TalonFXConfiguration;
 
 public class TalonFXSetup {
 
-    public static void defaultSetup(TalonFX motor, boolean isInverted, double currentLimit){
+    public static void defaultSetup(TalonFX motor, boolean isInverted, double currentLimit) {
         motor.configFactoryDefault();
         motor.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor);
-        motor.configVoltageCompSaturation(12);  //default 12v voltage compensation for motors
-        motor.enableVoltageCompensation(true);  //enable voltage compensation
+        motor.configVoltageCompSaturation(12); // default 12v voltage compensation for motors
+        motor.enableVoltageCompensation(true); // enable voltage compensation
         simpleCurrentLimit(motor, currentLimit);
         motor.setInverted(isInverted);
         defaultStatusFrames(motor);
     }
 
-    public static void configAllSetup(TalonFX motor, TalonFXConfiguration config){
+    public static void configAllSetup(TalonFX motor, TalonFXConfiguration config) {
         motor.configFactoryDefault();
         motor.configAllSettings(config);
         pidStatusFrames(motor);
     }
 
-    public static void configFollowerSetup(TalonFX motor, TalonFXConfiguration config){
+    public static void configFollowerSetup(TalonFX motor, TalonFXConfiguration config) {
         motor.configFactoryDefault();
         motor.configAllSettings(config);
         defaultStatusFrames(motor);
     }
 
-    //Talon FX motor
-    //Limit in Amps
-    public static void simpleCurrentLimit(TalonFX motor, double limit){
-        SupplyCurrentLimitConfiguration supplyCurrentLimit = new SupplyCurrentLimitConfiguration(true, limit, limit, 0.5);
+    // Talon FX motor
+    // Limit in Amps
+    public static void simpleCurrentLimit(TalonFX motor, double limit) {
+        SupplyCurrentLimitConfiguration supplyCurrentLimit =
+                new SupplyCurrentLimitConfiguration(true, limit, limit, 0.5);
         motor.configSupplyCurrentLimit(supplyCurrentLimit);
     }
 
-    public static void defaultStatusFrames(TalonFX motor){
-        //Default Status Rates are listed here: https://docs.ctre-phoenix.com/en/stable/ch18_CommonAPI.html
-        //int fastTime = 100;
+    public static void defaultStatusFrames(TalonFX motor) {
+        // Default Status Rates are listed here:
+        // https://docs.ctre-phoenix.com/en/stable/ch18_CommonAPI.html
+        // int fastTime = 100;
         int slowTime = 500;
         motor.setStatusFramePeriod(StatusFrame.Status_1_General, 10);
         motor.setStatusFramePeriod(StatusFrame.Status_2_Feedback0, 50);
@@ -53,8 +55,9 @@ public class TalonFXSetup {
         motor.setStatusFramePeriod(StatusFrame.Status_17_Targets1, slowTime);
     }
 
-    public static void pidStatusFrames(TalonFX motor){
-        //Default Status Rates are listed here: https://docs.ctre-phoenix.com/en/stable/ch18_CommonAPI.html
+    public static void pidStatusFrames(TalonFX motor) {
+        // Default Status Rates are listed here:
+        // https://docs.ctre-phoenix.com/en/stable/ch18_CommonAPI.html
         int fastTime = 100;
         int slowTime = 500;
         motor.setStatusFramePeriod(StatusFrame.Status_1_General, 10);

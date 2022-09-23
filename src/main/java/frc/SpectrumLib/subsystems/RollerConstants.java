@@ -1,4 +1,4 @@
-//Created by Spectrum3847
+// Created by Spectrum3847
 
 package frc.SpectrumLib.subsystems;
 
@@ -7,13 +7,12 @@ import com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix.motorcontrol.can.TalonFXConfiguration;
 import com.ctre.phoenix.sensors.SensorInitializationStrategy;
-
 import frc.SpectrumLib.motorControllers.TalonFXSetup;
 
-public abstract class RollerConstants{
+public abstract class RollerConstants {
     public String name;
 
-    //Physical Constants
+    // Physical Constants
     public double diameterInches = 2;
     public double diameterMeters = diameterInches * 0.0254;
 
@@ -24,7 +23,7 @@ public abstract class RollerConstants{
 
     public double maxRPM = 6000;
 
-    //Falcon Setup
+    // Falcon Setup
     public static TalonFXConfiguration config = new TalonFXConfiguration();
 
     /* Inverted */
@@ -45,7 +44,7 @@ public abstract class RollerConstants{
 
     /* Motor Characterization Values */
     public double kS = 0;
-    public double kV = 0; 
+    public double kV = 0;
     public double kA = 0;
 
     /* Current Limiting */
@@ -53,8 +52,9 @@ public abstract class RollerConstants{
     public int tirggerThresholdLimit = 45;
     public double PeakCurrentDuration = 0.5;
     public boolean EnableCurrentLimit = true;
-    public SupplyCurrentLimitConfiguration supplyLimit = new SupplyCurrentLimitConfiguration(
-        EnableCurrentLimit, currentLimit, tirggerThresholdLimit, PeakCurrentDuration);
+    public SupplyCurrentLimitConfiguration supplyLimit =
+            new SupplyCurrentLimitConfiguration(
+                    EnableCurrentLimit, currentLimit, tirggerThresholdLimit, PeakCurrentDuration);
 
     /* Voltage Compensation */
     public double voltageCompSaturation = 12;
@@ -66,7 +66,7 @@ public abstract class RollerConstants{
     /* Intialization Strategy */
     public SensorInitializationStrategy sensorStrat = SensorInitializationStrategy.BootToZero;
 
-    public void setConfig(){
+    public void setConfig() {
         config.slot0.kP = kP;
         config.slot0.kI = kI;
         config.slot0.kD = kD;
@@ -74,7 +74,7 @@ public abstract class RollerConstants{
         config.slot0.integralZone = kIz;
         config.motionCruiseVelocity = motionCruiseVelocity;
         config.motionAcceleration = motionAcceleration;
-        
+
         config.supplyCurrLimit = supplyLimit;
         config.openloopRamp = openLoopRamp;
         config.closedloopRamp = closedLoopRamp;
@@ -82,14 +82,13 @@ public abstract class RollerConstants{
         config.initializationStrategy = sensorStrat;
     }
 
-    public void setupFalconLeader(TalonFX motor){
+    public void setupFalconLeader(TalonFX motor) {
         TalonFXSetup.configAllSetup(motor, config);
         motor.setInverted(kInverted);
         motor.setNeutralMode(kNeutralMode);
     }
 
-
-    public void setupFalconFollower(TalonFX motorFollower, TalonFX motorLeader){
+    public void setupFalconFollower(TalonFX motorFollower, TalonFX motorLeader) {
         TalonFXSetup.configFollowerSetup(motorFollower, config);
         motorFollower.setInverted(kFollowerInverted);
         motorFollower.setNeutralMode(kNeutralMode);

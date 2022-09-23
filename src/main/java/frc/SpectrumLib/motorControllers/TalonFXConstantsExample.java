@@ -5,7 +5,7 @@ import com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration;
 import com.ctre.phoenix.motorcontrol.can.TalonFXConfiguration;
 import com.ctre.phoenix.sensors.SensorInitializationStrategy;
 
-public final class TalonFXConstantsExample{
+public final class TalonFXConstantsExample {
     public static TalonFXConfiguration config;
 
     /* Neutral Modes */
@@ -25,8 +25,9 @@ public final class TalonFXConstantsExample{
     public final int tirggerThresholdLimit = 0;
     public final double PeakCurrentDuration = 0;
     public final boolean EnableCurrentLimit = false;
-    public final SupplyCurrentLimitConfiguration supplyLimit = new SupplyCurrentLimitConfiguration(
-        EnableCurrentLimit, currentLimit, tirggerThresholdLimit, PeakCurrentDuration);
+    public final SupplyCurrentLimitConfiguration supplyLimit =
+            new SupplyCurrentLimitConfiguration(
+                    EnableCurrentLimit, currentLimit, tirggerThresholdLimit, PeakCurrentDuration);
 
     /* Voltage Compensation */
     public final double voltageCompSaturation = 12;
@@ -37,7 +38,7 @@ public final class TalonFXConstantsExample{
 
     /* Motor Characterization Values */
     public final double kS = 0;
-    public final double kV = 0; 
+    public final double kV = 0;
     public final double kA = 0;
 
     /* Intialization Strategy */
@@ -45,11 +46,12 @@ public final class TalonFXConstantsExample{
 
     /* getConfig */
     private static final TalonFXConstantsExample instance = new TalonFXConstantsExample();
-    public static TalonFXConstantsExample getInstance(){
+
+    public static TalonFXConstantsExample getInstance() {
         return instance;
     }
 
-    private TalonFXConstantsExample(){
+    private TalonFXConstantsExample() {
         config.slot0.kP = kP;
         config.slot0.kI = kI;
         config.slot0.kD = kD;
@@ -57,7 +59,7 @@ public final class TalonFXConstantsExample{
         config.slot0.integralZone = kIz;
         config.motionCruiseVelocity = motionCruiseVelocity;
         config.motionAcceleration = motionAcceleration;
-        
+
         config.supplyCurrLimit = supplyLimit;
         config.openloopRamp = openLoopRamp;
         config.closedloopRamp = closedLoopRamp;

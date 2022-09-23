@@ -1,25 +1,21 @@
-//Created by Spectrum3847
-//Based on Code from FRC# 2363
+// Created by Spectrum3847
+// Based on Code from FRC# 2363
 package frc.SpectrumLib.gamepads.mapping;
 
 /**
- * This class maps the value of a stick input to an exponential curve.
- * It is a subclass of <code>Curve</code>.
+ * This class maps the value of a stick input to an exponential curve. It is a subclass of <code>
+ * Curve</code>.
  *
  * @author Justin Babilino
  * @version 0.0.3
  */
 public class ExpCurve extends Curve {
-    /**
-     * The value of the base of the exponent used in calculating the curve.
-     */
+    /** The value of the base of the exponent used in calculating the curve. */
     private double expVal;
 
     /**
-     * Constructs an Exponential Curve object which can
-     * be used to map a stick input exponentially. Initialized
-     * with default values:
-     * <code>
+     * Constructs an Exponential Curve object which can be used to map a stick input exponentially.
+     * Initialized with default values: <code>
      *     expVal = 1.0;
      *     offset = 0.0;
      *     scalar = 1.0;
@@ -34,10 +30,9 @@ public class ExpCurve extends Curve {
     }
 
     /**
-     * Constructs an Exponential Curve object which can
-     * be used to map a stick input exponentially. Initialized
-     * with values provided.
-     * 
+     * Constructs an Exponential Curve object which can be used to map a stick input exponentially.
+     * Initialized with values provided.
+     *
      * @param expVal value of the base of the exponent used in the curve
      * @param offset value used to offset the final curve
      * @param scalar value used to scale the value before offset
@@ -50,10 +45,9 @@ public class ExpCurve extends Curve {
         setDeadzone(deadzone);
     }
 
-    /**
-     * @param input value to be mapped
-     */
-    @Override public double calculateMappedVal(double input) {
+    /** @param input value to be mapped */
+    @Override
+    public double calculateMappedVal(double input) {
         double val = calculateOffset(calculateScalar(calculateExpVal(calculateDeadzone(input))));
         if (val > 1.0) {
             val = 1.0;
@@ -64,9 +58,8 @@ public class ExpCurve extends Curve {
     }
 
     /**
-     * Returns the value of the input mapped by
-     * an exponential curve of base <code>expVal</code>.
-     * 
+     * Returns the value of the input mapped by an exponential curve of base <code>expVal</code>.
+     *
      * @param input the input value to be mapped
      * @return mapped value
      */
@@ -79,9 +72,8 @@ public class ExpCurve extends Curve {
     }
 
     /**
-     * Sets the value of <code>expVal</code>, the base of the exponent
-     * used to map the input.
-     * 
+     * Sets the value of <code>expVal</code>, the base of the exponent used to map the input.
+     *
      * @param expVal the new value of <code>expVal</code>
      */
     public void setExpVal(double expVal) {
@@ -90,11 +82,10 @@ public class ExpCurve extends Curve {
         }
         this.expVal = expVal;
     }
-    
+
     /**
-     * Returns the value of <code>expVal</code>, the base of the exponent
-     * used to map the input.
-     * 
+     * Returns the value of <code>expVal</code>, the base of the exponent used to map the input.
+     *
      * @return the current value of <code>expVal</code>
      */
     public double getExpVal() {

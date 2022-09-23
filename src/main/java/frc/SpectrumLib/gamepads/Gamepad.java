@@ -10,62 +10,61 @@ import frc.SpectrumLib.util.Alert;
 
 public class Gamepad extends SubsystemBase {
 
-	public boolean configured = false;
-	public XboxGamepad gamepad;
-	public Alert alert; 
+    public boolean configured = false;
+    public XboxGamepad gamepad;
+    public Alert alert;
 
-  /** Creates a new Gamepad. */
-  public Gamepad(String name, int port) {
-    gamepad = new XboxGamepad(port);
-    alert = new Alert("Alerts", name + "GAMEPAD NOT FOUND", Alert.AlertType.WARNING);
-  }
+    /**
+     * Creates a new Gamepad.
+     *
+     * @param port The port the gamepad is plugged into
+     * @param name The name of the gamepad
+     */
+    public Gamepad(String name, int port) {
+        gamepad = new XboxGamepad(port);
+        alert = new Alert("Alerts", name + "GAMEPAD NOT FOUND", Alert.AlertType.WARNING);
+    }
 
-  @Override
-  public void periodic() {
-    configure();
-  }
+    @Override
+    public void periodic() {
+        configure();
+    }
 
-  // Configure the driver controller
-	public void configure() {
-		// Detect whether the xbox controller has been plugged in after start-up
-		if (!configured) {
-			boolean isConnected = gamepad.isConnected();
-			if (!isConnected) {
-				alert.set(true);
-				return;
-			}
+    // Configure the driver controller
+    public void configure() {
+        // Detect whether the xbox controller has been plugged in after start-up
+        if (!configured) {
+            boolean isConnected = gamepad.isConnected();
+            if (!isConnected) {
+                alert.set(true);
+                return;
+            }
 
-			// Configure button bindings once the driver controller is connected
-			if (DriverStation.isTest()) {
-				setupTestButtons();
-			} else if (DriverStation.isDisabled()){
-        setupDisabledButtons();
-      } else {
-				setupTeleopButtons();
-			}
-			configured = true;
-			
-			alert.set(false);
-		}
-	}
+            // Configure button bindings once the driver controller is connected
+            if (DriverStation.isTest()) {
+                setupTestButtons();
+            } else if (DriverStation.isDisabled()) {
+                setupDisabledButtons();
+            } else {
+                setupTeleopButtons();
+            }
+            configured = true;
 
-  //Reset the controller configure, should be used with CommandScheduler.getInstance.clearButtons() to reset buttons
-  public void resetConfig() {
-		configured = false;
-		configure();
-	}
+            alert.set(false);
+        }
+    }
 
-  public void setupTeleopButtons(){
+    // Reset the controller configure, should be used with
+    // CommandScheduler.getInstance.clearButtons()
+    // to reset buttons
+    public void resetConfig() {
+        configured = false;
+        configure();
+    }
 
-  }
+    public void setupTeleopButtons() {}
 
-  public void setupDisabledButtons(){
+    public void setupDisabledButtons() {}
 
-  }
-
-  public void setupTestButtons(){
-
-  }
-
-
+    public void setupTestButtons() {}
 }

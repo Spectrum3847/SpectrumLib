@@ -1,20 +1,19 @@
-//Created by Spectrum3847
-//Based on Code from FRC# 2363
+// Created by Spectrum3847
+// Based on Code from FRC# 2363
 package frc.SpectrumLib.gamepads.mapping;
 
 /**
- * This class maps the value of a stick input to an linear curve.
- * It is a subclass of <code>Curve</code>.
+ * This class maps the value of a stick input to an linear curve. It is a subclass of <code>Curve
+ * </code>.
  *
  * @author Justin Babilino
  * @version 0.0.3
  */
 public class LinCurve extends Curve {
     /**
-     * Constructs an Linear Curve object which can
-     * be used to map a stick input proportionally.
+     * Constructs an Linear Curve object which can be used to map a stick input proportionally.
      * Initialized with values provided.
-     * 
+     *
      * @param offset value used to offset the final curve
      * @param scalar value used to scale the value before offset
      * @param deadzone value for the width of the deadband in the center of the curve
@@ -26,10 +25,8 @@ public class LinCurve extends Curve {
     }
 
     /**
-     * Constructs an Linear Curve object which can
-     * be used to map a stick input proportionally.
-     * Initialized with default values:
-     * <code>
+     * Constructs an Linear Curve object which can be used to map a stick input proportionally.
+     * Initialized with default values: <code>
      *     offset = 0.0;
      *     scalar = 1.0;
      *     deadzone = 0.0;
@@ -41,10 +38,9 @@ public class LinCurve extends Curve {
         setDeadzone(0.0);
     }
 
-    /**
-     * @param input value to be mapped
-     */
-    @Override public double calculateMappedVal(double input) {
+    /** @param input value to be mapped */
+    @Override
+    public double calculateMappedVal(double input) {
         double val = calculateOffset(calculateScalar(calculateDeadzone(input)));
         if (val > 1.0) {
             val = 1.0;
