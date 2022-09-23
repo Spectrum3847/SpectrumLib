@@ -1,10 +1,8 @@
-import edu.wpi.first.gradlerio.deploy.roborio.RoboRIO
-
 plugins {
     id "java"
     id "edu.wpi.first.GradleRIO" version "2022.4.1"
     id 'maven-publish'
-    id 'com.diffplug.spotless' version '6.1.0'
+    id 'com.diffplug.spotless' version '6.10.0'
 }
 
 sourceCompatibility = JavaVersion.VERSION_11
