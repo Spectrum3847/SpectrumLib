@@ -1,5 +1,8 @@
+import edu.wpi.first.gradlerio.deploy.roborio.RoboRIO
+
 plugins {
     id "java"
+    id "maven-publish"
     id "edu.wpi.first.GradleRIO" version "2022.4.1"
 }
 
@@ -45,6 +48,11 @@ wpi.java.debugJni = false
 // Set this to true to enable desktop support.
 def includeDesktopSupport = true
 
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
 // Defining my dependencies. In this case, WPILib (+ friends), and vendor libraries.
 // Also defines JUnit 4.
 dependencies {
@@ -85,3 +93,15 @@ jar {
 deployArtifact.jarTask = jar
 wpi.java.configureExecutableTasks(jar)
 wpi.java.configureTestTasks(test)
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.github.Spectrum3847'
+            artifactId = 'SpectrumLib'
+            version = 'main-SNAPSHOT'
+
+            from components.java
+        }
+    }
+}
