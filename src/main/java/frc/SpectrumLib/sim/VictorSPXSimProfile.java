@@ -1,9 +1,10 @@
 package frc.SpectrumLib.sim;
 
-import static frc.SpectrumLib.sim.PhysicsSim.*; // random()
+// random()
+import static frc.SpectrumLib.sim.PhysicsSim.random;
 
-import com.ctre.phoenix.motorcontrol.can.*;
-import frc.SpectrumLib.sim.PhysicsSim.*;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import frc.SpectrumLib.sim.PhysicsSim.SimProfile;
 
 /** Holds information about a simulated VictorSPX. */
 class VictorSPXSimProfile extends SimProfile {

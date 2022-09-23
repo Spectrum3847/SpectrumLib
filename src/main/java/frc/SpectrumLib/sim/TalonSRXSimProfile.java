@@ -3,7 +3,6 @@ package frc.SpectrumLib.sim;
 import static frc.SpectrumLib.sim.PhysicsSim.*; // random()
 
 import com.ctre.phoenix.motorcontrol.can.*;
-import frc.SpectrumLib.sim.PhysicsSim.*;
 
 /** Holds information about a simulated TalonSRX. */
 class TalonSRXSimProfile extends SimProfile {
