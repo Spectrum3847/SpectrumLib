@@ -94,13 +94,13 @@ deployArtifact.jarTask = jar
 wpi.java.configureExecutableTasks(jar)
 wpi.java.configureTestTasks(test)
 
+java {
+	withSourcesJar()
+}
+
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'com.github.Spectrum3847'
-            artifactId = 'SpectrumLib'
-            version = 'main-SNAPSHOT'
-
             from components.java
         }
     }
