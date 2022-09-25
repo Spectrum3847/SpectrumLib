@@ -114,18 +114,20 @@ public class Util {
         NetworkInterface ni;
         byte[] hardwareAddress;
         String MAC = "";
-        try {
-            localHost = InetAddress.getLocalHost();
-            ni = NetworkInterface.getByInetAddress(localHost);
-            hardwareAddress = ni.getHardwareAddress();
-            String[] hexadecimal = new String[hardwareAddress.length];
-            for (int i = 0; i < hardwareAddress.length; i++) {
-                hexadecimal[i] = String.format("%02X", hardwareAddress[i]);
+        while (MAC.equals("")) {
+            try {
+                localHost = InetAddress.getLocalHost();
+                ni = NetworkInterface.getByInetAddress(localHost);
+                hardwareAddress = ni.getHardwareAddress();
+                String[] hexadecimal = new String[hardwareAddress.length];
+                for (int i = 0; i < hardwareAddress.length; i++) {
+                    hexadecimal[i] = String.format("%02X", hardwareAddress[i]);
+                }
+                MAC = String.join(":", hexadecimal);
+                return MAC;
+            } catch (UnknownHostException | SocketException | NullPointerException e) {
+                e.printStackTrace();
             }
-            MAC = String.join(":", hexadecimal);
-            return MAC;
-        } catch (UnknownHostException | SocketException | NullPointerException e) {
-            e.printStackTrace();
         }
         return "";
     }
