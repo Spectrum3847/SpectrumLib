@@ -1,4 +1,4 @@
-package frc.SpectrumLib.subsystems;
+package frc.SpectrumLib.subsystems.pneumatic;
 
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.RobotBase;
@@ -26,7 +26,7 @@ public class PneumaticSubsystem extends SubsystemBase {
         }
 
         // Default to off
-        this.setDefaultCommand(new RunCommand(() -> off(), this));
+        this.setDefaultCommand(new RunCommand(() -> off(), this).withName("Pneumatic Default"));
     }
 
     /** Set the solenoid to on */

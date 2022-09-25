@@ -124,6 +124,7 @@ public class Util {
                     hexadecimal[i] = String.format("%02X", hardwareAddress[i]);
                 }
                 MAC = String.join(":", hexadecimal);
+                System.out.println("MAC address: " + MAC);
                 return MAC;
             } catch (UnknownHostException | SocketException | NullPointerException e) {
                 e.printStackTrace();

@@ -5,13 +5,13 @@ import com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration;
 import com.ctre.phoenix.motorcontrol.can.TalonFXConfiguration;
 import com.ctre.phoenix.sensors.SensorInitializationStrategy;
 
-public final class TalonFXConstantsExample {
+public final class TalonFXConfigs {
     public static TalonFXConfiguration config;
 
     /* Neutral Modes */
     public final NeutralMode neutralMode = NeutralMode.Coast;
 
-    /* Control Loop Constants */
+    /* Control Loop Configs */
     public final double kP = 0;
     public final double kI = 0;
     public final double kD = 0;
@@ -45,13 +45,13 @@ public final class TalonFXConstantsExample {
     public final SensorInitializationStrategy sensorStrat = SensorInitializationStrategy.BootToZero;
 
     /* getConfig */
-    private static final TalonFXConstantsExample instance = new TalonFXConstantsExample();
+    private static final TalonFXConfigs instance = new TalonFXConfigs();
 
-    public static TalonFXConstantsExample getInstance() {
+    public static TalonFXConfigs getInstance() {
         return instance;
     }
 
-    private TalonFXConstantsExample() {
+    private TalonFXConfigs() {
         config.slot0.kP = kP;
         config.slot0.kI = kI;
         config.slot0.kD = kD;

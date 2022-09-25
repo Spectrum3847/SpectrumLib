@@ -10,6 +10,14 @@ import com.ctre.phoenix.motorcontrol.can.TalonFXConfiguration;
 
 public class TalonFXSetup {
 
+    /**
+     * Sets up the TalonFX with the given configuration, enable voltage compensation at 12 volts Use
+     * defaultStatusFrames
+     *
+     * @param motor TalonFX to be configured
+     * @param isInverted Whether the TalonFX is inverted
+     * @param currentLimit Current Limit of the TalonFX
+     */
     public static void defaultSetup(TalonFX motor, boolean isInverted, double currentLimit) {
         motor.configFactoryDefault();
         motor.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor);
@@ -20,30 +28,49 @@ public class TalonFXSetup {
         defaultStatusFrames(motor);
     }
 
+    /**
+     * Sets up the TalonFX to use the the config and status frames
+     *
+     * @param motor TalonFX to set up
+     * @param config TalonFXConfiguration to use
+     */
     public static void configAllSetup(TalonFX motor, TalonFXConfiguration config) {
         motor.configFactoryDefault();
         motor.configAllSettings(config);
         pidStatusFrames(motor);
     }
 
+    /**
+     * Sets up the status frames for the motor controller
+     *
+     * @param motor the motor controller to set up
+     * @param config the configuration to use
+     */
     public static void configFollowerSetup(TalonFX motor, TalonFXConfiguration config) {
         motor.configFactoryDefault();
         motor.configAllSettings(config);
         defaultStatusFrames(motor);
     }
 
-    // Talon FX motor
-    // Limit in Amps
+    /**
+     * Set a simple current limit for a falcon
+     *
+     * @param motor TalonFX motor
+     * @param limit Limit in Amps
+     */
     public static void simpleCurrentLimit(TalonFX motor, double limit) {
         SupplyCurrentLimitConfiguration supplyCurrentLimit =
                 new SupplyCurrentLimitConfiguration(true, limit, limit, 0.5);
         motor.configSupplyCurrentLimit(supplyCurrentLimit);
     }
 
+    /**
+     * Sets up the status frames for a simple motor Default Status Rates are listed here:
+     * https://docs.ctre-phoenix.com/en/stable/ch18_CommonAPI.html
+     *
+     * @param motor the motor controller to set up
+     */
     public static void defaultStatusFrames(TalonFX motor) {
-        // Default Status Rates are listed here:
-        // https://docs.ctre-phoenix.com/en/stable/ch18_CommonAPI.html
-        // int fastTime = 100;
         int slowTime = 500;
         motor.setStatusFramePeriod(StatusFrame.Status_1_General, 10);
         motor.setStatusFramePeriod(StatusFrame.Status_2_Feedback0, 50);
@@ -55,6 +82,12 @@ public class TalonFXSetup {
         motor.setStatusFramePeriod(StatusFrame.Status_17_Targets1, slowTime);
     }
 
+    /**
+     * Sets up the status frames for the motor controller that is using PID,MM, etc Default Status
+     * Rates are listed here: https://docs.ctre-phoenix.com/en/stable/ch18_CommonAPI.html
+     *
+     * @param motor the motor controller to set up
+     */
     public static void pidStatusFrames(TalonFX motor) {
         // Default Status Rates are listed here:
         // https://docs.ctre-phoenix.com/en/stable/ch18_CommonAPI.html
