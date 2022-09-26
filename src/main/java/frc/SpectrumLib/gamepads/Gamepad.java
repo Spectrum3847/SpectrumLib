@@ -22,7 +22,7 @@ public class Gamepad extends SubsystemBase {
      */
     public Gamepad(String name, int port) {
         gamepad = new XboxGamepad(port);
-        alert = new Alert("Alerts", name + "GAMEPAD NOT FOUND", Alert.AlertType.WARNING);
+        alert = new Alert("Alerts", name + " GAMEPAD NOT FOUND", Alert.AlertType.WARNING);
     }
 
     @Override

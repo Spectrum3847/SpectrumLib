@@ -3,6 +3,7 @@
 package frc.SpectrumLib.subsystems.rollerMech;
 
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import edu.wpi.first.math.util.Units;
 import frc.SpectrumLib.motorControllers.TalonFXSetup;
 import frc.SpectrumLib.subsystems.MotorSubsystemConfig;
 
@@ -19,13 +20,13 @@ public abstract class RollerMechConfig extends MotorSubsystemConfig {
     public double kA = 0;
 
     public double getDiameterMeters() {
-        return diameterInches * 0.0254;
+        return Units.inchesToMeters(diameterInches);
     }
 
     public double getCirumferrenceInches() {
         return diameterInches * Math.PI;
     }
-    
+
     public double getCircumferenceMeters() {
         return getDiameterMeters() * Math.PI;
     }
