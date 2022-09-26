@@ -15,39 +15,39 @@ import frc.SpectrumLib.motorControllers.TalonFXSetup;
 public class MotorSubsystemConfigs {
     public String name;
     /* Inverted */
-    public final boolean kInverted = false;
-    public final boolean kFollowerInverted = true;
+    public boolean kInverted = false;
+    public boolean kFollowerInverted = true;
 
     /* Neutral Modes */
-    public final NeutralMode kNeutralMode = NeutralMode.Brake;
+    public NeutralMode kNeutralMode = NeutralMode.Brake;
 
     /* Control Loop Constants */
-    public final double kP = 0.0;
-    public final double kI = 0;
-    public final double kD = 0;
-    public final double kF = 0.05;
-    public final double kIz = 150;
-    public final double motionCruiseVelocity = 0;
-    public final double motionAcceleration = 0;
+    public double kP = 0.0;
+    public double kI = 0;
+    public double kD = 0;
+    public double kF = 0.05;
+    public double kIz = 150;
+    public double motionCruiseVelocity = 0;
+    public double motionAcceleration = 0;
 
     /* Current Limiting */
-    public final int currentLimit = 40;
-    public final int tirggerThresholdLimit = 45;
-    public final double PeakCurrentDuration = 0.5;
-    public final boolean EnableCurrentLimit = true;
-    public final SupplyCurrentLimitConfiguration supplyLimit =
+    public int currentLimit = 40;
+    public int tirggerThresholdLimit = 45;
+    public double PeakCurrentDuration = 0.5;
+    public boolean EnableCurrentLimit = true;
+    public SupplyCurrentLimitConfiguration supplyLimit =
             new SupplyCurrentLimitConfiguration(
                     EnableCurrentLimit, currentLimit, tirggerThresholdLimit, PeakCurrentDuration);
 
     /* Voltage Compensation */
-    public final double voltageCompSaturation = 12;
+    public double voltageCompSaturation = 12;
 
     /* Ramp Rate */
-    public final double openLoopRamp = 0;
-    public final double closedLoopRamp = 0;
+    public double openLoopRamp = 0;
+    public double closedLoopRamp = 0;
 
     /* Intialization Strategy */
-    public final SensorInitializationStrategy sensorStrat = SensorInitializationStrategy.BootToZero;
+    public SensorInitializationStrategy sensorStrat = SensorInitializationStrategy.BootToZero;
 
     // Falcon Setup
     public TalonFXConfiguration TalonFXConfig = new TalonFXConfiguration();

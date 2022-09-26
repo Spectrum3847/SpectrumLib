@@ -13,12 +13,6 @@ import frc.SpectrumLib.subsystems.MotorSubsystem;
 public abstract class RollerSubsystem extends MotorSubsystem {
     public RollerConfigs configs;
 
-    /*
-     * Example for follower
-     * motorFollower = new WPI_TalonFX(1); //Replace with correct CAN ID
-     * RollerFalconConfig.setupRollerFalconFollower(motorFollower, motorLeader);
-     */
-
     public RollerSubsystem(RollerConfigs configs, WPI_TalonFX motorLeader) {
         super(configs, motorLeader);
         this.configs = configs;
