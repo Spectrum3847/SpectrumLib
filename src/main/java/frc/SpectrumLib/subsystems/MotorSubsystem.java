@@ -5,7 +5,6 @@
 package frc.SpectrumLib.subsystems;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.TalonFXSimCollection;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -15,12 +14,10 @@ public class MotorSubsystem extends SubsystemBase {
 
     public MotorSubsystemConfig config;
     public WPI_TalonFX motorLeader;
-    public TalonFXSimCollection motorSim;
 
     public MotorSubsystem(MotorSubsystemConfig config) {
         super();
         this.config = config;
-        motorSim = motorLeader.getSimCollection();
         setDefaultCommand(new RunCommand(() -> this.stop(), this));
     }
 
