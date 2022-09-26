@@ -16,7 +16,7 @@ public class Network {
         byte[] hardwareAddress;
         String MAC = "";
         int i = 0;
-        while (MAC.equals("") && i < 10) {
+        while (i < 10) {
             try {
                 localHost = InetAddress.getLocalHost();
                 ni = NetworkInterface.getByInetAddress(localHost);
@@ -29,10 +29,9 @@ public class Network {
                 i++;
                 return MAC;
             } catch (UnknownHostException | SocketException | NullPointerException e) {
-                MAC = "UNKNOWN";
             }
         }
-        return MAC;
+        return "UNKNOWN";
     }
 
     /**
@@ -44,17 +43,16 @@ public class Network {
         InetAddress localHost;
         String IP = "";
         int i = 0;
-        while (IP.equals("") && i < 10) {
+        while (i < 10) {
             try {
                 localHost = InetAddress.getLocalHost();
                 IP = localHost.getHostAddress();
                 i++;
                 return IP;
             } catch (UnknownHostException e) {
-                IP = "UNKNOWN";
             }
         }
-        return IP;
+        return "UNKNOWN";
     }
 
     /**
@@ -66,16 +64,15 @@ public class Network {
         InetAddress localHost;
         String IP = "";
         int i = 0;
-        while (IP.equals("") && i < 10) {
+        while (i < 10) {
             try {
                 localHost = InetAddress.getByName(deviceNameAddress);
                 IP = localHost.getHostAddress();
                 i++;
                 return IP;
             } catch (UnknownHostException e) {
-                IP = "UNKNOWN";
             }
         }
-        return IP;
+        return "UNKNOWN";
     }
 }
