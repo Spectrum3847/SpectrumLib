@@ -9,12 +9,7 @@ import frc.SpectrumLib.subsystems.MotorSubsystemConfig;
 public abstract class RollerMechConfig extends MotorSubsystemConfig {
     // Physical Constants
     public double diameterInches = 2;
-    public double diameterMeters = diameterInches * 0.0254;
-
     public double gearRatio = 1;
-
-    public double wheelCircumferenceMeters = diameterMeters * Math.PI;
-    public double wheelCircumferenceInches = diameterInches * Math.PI;
 
     public double maxRPM = 6000;
 
@@ -22,6 +17,18 @@ public abstract class RollerMechConfig extends MotorSubsystemConfig {
     public double kS = 0;
     public double kV = 0;
     public double kA = 0;
+
+    public double getDiameterMeters() {
+        return diameterInches * 0.0254;
+    }
+
+    public double getCirumferrenceInches() {
+        return diameterInches * Math.PI;
+    }
+    
+    public double getCircumferenceMeters() {
+        return getDiameterMeters() * Math.PI;
+    }
 
     public RollerMechConfig(String name) {
         super(name);
