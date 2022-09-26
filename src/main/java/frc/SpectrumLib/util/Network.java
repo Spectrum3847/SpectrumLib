@@ -15,17 +15,18 @@ public class Network {
         NetworkInterface ni;
         byte[] hardwareAddress;
         String MAC = "";
-        while (MAC.equals("")) {
+        int i = 0;
+        while (MAC.equals("") && i < 10) {
             try {
                 localHost = InetAddress.getLocalHost();
                 ni = NetworkInterface.getByInetAddress(localHost);
                 hardwareAddress = ni.getHardwareAddress();
                 String[] hexadecimal = new String[hardwareAddress.length];
-                for (int i = 0; i < hardwareAddress.length; i++) {
-                    hexadecimal[i] = String.format("%02X", hardwareAddress[i]);
+                for (int j = 0; j < hardwareAddress.length; j++) {
+                    hexadecimal[j] = String.format("%02X", hardwareAddress[j]);
                 }
                 MAC = String.join(":", hexadecimal);
-                System.out.println("MAC address: " + MAC);
+                i++;
                 return MAC;
             } catch (UnknownHostException | SocketException | NullPointerException e) {
                 MAC = "UNKNOWN";
@@ -42,11 +43,12 @@ public class Network {
     public static String getIPaddress() {
         InetAddress localHost;
         String IP = "";
-        while (IP.equals("")) {
+        int i = 0;
+        while (IP.equals("") && i < 10) {
             try {
                 localHost = InetAddress.getLocalHost();
                 IP = localHost.getHostAddress();
-                System.out.println("IP address: " + IP);
+                i++;
                 return IP;
             } catch (UnknownHostException e) {
                 IP = "UNKNOWN";
@@ -63,11 +65,12 @@ public class Network {
     public static String getIPaddress(String deviceNameAddress) {
         InetAddress localHost;
         String IP = "";
-        while (IP.equals("")) {
+        int i = 0;
+        while (IP.equals("") && i < 10) {
             try {
                 localHost = InetAddress.getByName(deviceNameAddress);
                 IP = localHost.getHostAddress();
-                System.out.println("IP address: " + IP);
+                i++;
                 return IP;
             } catch (UnknownHostException e) {
                 IP = "UNKNOWN";
