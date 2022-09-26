@@ -4,9 +4,9 @@ package frc.SpectrumLib.subsystems.rollerMech;
 
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import frc.SpectrumLib.motorControllers.TalonFXSetup;
-import frc.SpectrumLib.subsystems.MotorSubsystemConfigs;
+import frc.SpectrumLib.subsystems.MotorSubsystemConfig;
 
-public abstract class RollerConfigs extends MotorSubsystemConfigs {
+public abstract class RollerMechConfig extends MotorSubsystemConfig {
     // Physical Constants
     public double diameterInches = 2;
     public double diameterMeters = diameterInches * 0.0254;
@@ -23,7 +23,7 @@ public abstract class RollerConfigs extends MotorSubsystemConfigs {
     public double kV = 0;
     public double kA = 0;
 
-    public RollerConfigs(String name) {
+    public RollerMechConfig(String name) {
         super(name);
         updateTalonFXConfig();
     }

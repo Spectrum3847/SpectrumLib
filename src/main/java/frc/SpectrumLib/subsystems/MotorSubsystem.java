@@ -13,13 +13,13 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 /** Add your docs here. */
 public class MotorSubsystem extends SubsystemBase {
 
-    public MotorSubsystemConfigs configs;
+    public MotorSubsystemConfig config;
     public WPI_TalonFX motorLeader;
     public TalonFXSimCollection motorSim;
 
-    public MotorSubsystem(MotorSubsystemConfigs configs, WPI_TalonFX motorLeader) {
+    public MotorSubsystem(MotorSubsystemConfig config, WPI_TalonFX motorLeader) {
         super();
-        this.configs = configs;
+        this.config = config;
         this.motorLeader = motorLeader;
         motorSim = motorLeader.getSimCollection();
         setDefaultCommand(new RunCommand(() -> this.stop(), this));

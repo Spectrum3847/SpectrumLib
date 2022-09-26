@@ -10,12 +10,12 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import frc.SpectrumLib.subsystems.MotorSubsystem;
 
-public abstract class RollerSubsystem extends MotorSubsystem {
-    public RollerConfigs configs;
+public abstract class RollerMechSubsystem extends MotorSubsystem {
+    public RollerMechConfig config;
 
-    public RollerSubsystem(RollerConfigs configs, WPI_TalonFX motorLeader) {
-        super(configs, motorLeader);
-        this.configs = configs;
+    public RollerMechSubsystem(RollerMechConfig config, WPI_TalonFX motorLeader) {
+        super(config, motorLeader);
+        this.config = config;
         setDefaultCommand(new RunCommand(() -> this.stop(), this));
     }
 

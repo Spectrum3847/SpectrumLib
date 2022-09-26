@@ -3,7 +3,7 @@
 
 package frc.SpectrumLib.swerve;
 
-public class SwerveModuleConfigs {
+public class SwerveModuleConfig {
     public final int driveMotorID;
     public final int angleMotorID;
     public final int cancoderID;
@@ -19,7 +19,7 @@ public class SwerveModuleConfigs {
      * @param angleOffset Offset of the angle motor
      * @param angleOffsetPractice Offset of the angle motor for practice bot
      */
-    public SwerveModuleConfigs(
+    public SwerveModuleConfig(
             int driveMotorID,
             int angleMotorID,
             int canCoderID,

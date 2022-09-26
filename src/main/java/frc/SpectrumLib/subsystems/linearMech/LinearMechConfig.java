@@ -2,9 +2,9 @@
 
 package frc.SpectrumLib.subsystems.linearMech;
 
-import frc.SpectrumLib.subsystems.MotorSubsystemConfigs;
+import frc.SpectrumLib.subsystems.MotorSubsystemConfig;
 
-public final class LinearMechConfigs extends MotorSubsystemConfigs {
+public final class LinearMechConfig extends MotorSubsystemConfig {
     public final int fullExtend = 0;
     public final int fullRetract = 0;
 
@@ -18,7 +18,7 @@ public final class LinearMechConfigs extends MotorSubsystemConfigs {
     public final double kV = 0;
     public final double kA = 0;
 
-    public LinearMechConfigs(String name) {
+    public LinearMechConfig(String name) {
         super(name);
         updateTalonFXConfig();
     }

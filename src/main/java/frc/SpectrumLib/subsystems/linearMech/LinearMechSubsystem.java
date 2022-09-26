@@ -5,11 +5,11 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import frc.SpectrumLib.subsystems.MotorSubsystem;
 
 public abstract class LinearMechSubsystem extends MotorSubsystem {
-    public LinearMechConfigs configs;
+    public LinearMechConfig config;
 
-    public LinearMechSubsystem(LinearMechConfigs configs, WPI_TalonFX motorLeader) {
-        super(configs, motorLeader);
-        this.configs = configs;
+    public LinearMechSubsystem(LinearMechConfig config, WPI_TalonFX motorLeader) {
+        super(config, motorLeader);
+        this.config = config;
     }
 
     @Override

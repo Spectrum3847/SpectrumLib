@@ -2,9 +2,9 @@
 
 package frc.SpectrumLib.subsystems.angleMech;
 
-import frc.SpectrumLib.subsystems.MotorSubsystemConfigs;
+import frc.SpectrumLib.subsystems.MotorSubsystemConfig;
 
-public final class AngleMechConfigs extends MotorSubsystemConfigs {
+public final class AngleMechConfig extends MotorSubsystemConfig {
     public final int minAngle = 0;
     public final int maxAngle = 0;
 
@@ -24,7 +24,7 @@ public final class AngleMechConfigs extends MotorSubsystemConfigs {
     public final double kV = 0;
     public final double kA = 0;
 
-    public AngleMechConfigs(String name) {
+    public AngleMechConfig(String name) {
         super(name);
         updateTalonFXConfig();
     }

@@ -12,7 +12,7 @@ import com.ctre.phoenix.sensors.SensorInitializationStrategy;
 import frc.SpectrumLib.motorControllers.TalonFXSetup;
 
 /** Add your docs here. */
-public class MotorSubsystemConfigs {
+public class MotorSubsystemConfig {
     public String name;
     /* Inverted */
     public boolean kInverted = false;
@@ -52,7 +52,7 @@ public class MotorSubsystemConfigs {
     // Falcon Setup
     public TalonFXConfiguration TalonFXConfig = new TalonFXConfiguration();
 
-    public MotorSubsystemConfigs(String name) {
+    public MotorSubsystemConfig(String name) {
         this.name = name;
         updateTalonFXConfig();
     }

@@ -5,11 +5,11 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import frc.SpectrumLib.subsystems.MotorSubsystem;
 
 public abstract class AngleMechSubsystem extends MotorSubsystem {
-    public AngleMechConfigs configs;
+    public AngleMechConfig config;
 
-    public AngleMechSubsystem(AngleMechConfigs configs, WPI_TalonFX motorLeader) {
-        super(configs, motorLeader);
-        this.configs = configs;
+    public AngleMechSubsystem(AngleMechConfig config, WPI_TalonFX motorLeader) {
+        super(config, motorLeader);
+        this.config = config;
     }
 
     public void setMMPosition(double position) {
