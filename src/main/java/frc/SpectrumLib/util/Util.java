@@ -3,7 +3,6 @@ package frc.SpectrumLib.util;
 
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.Timer;
-import java.net.*;
 import java.util.List;
 
 /** Contains basic functions that are used often. */
@@ -107,29 +106,5 @@ public class Util {
 
     public static double powKeepSign(double v, double p) {
         return Math.signum(v) * Math.abs(Math.pow(v, p));
-    }
-
-    public static String getMACaddress() {
-        InetAddress localHost;
-        NetworkInterface ni;
-        byte[] hardwareAddress;
-        String MAC = "";
-        while (MAC.equals("")) {
-            try {
-                localHost = InetAddress.getLocalHost();
-                ni = NetworkInterface.getByInetAddress(localHost);
-                hardwareAddress = ni.getHardwareAddress();
-                String[] hexadecimal = new String[hardwareAddress.length];
-                for (int i = 0; i < hardwareAddress.length; i++) {
-                    hexadecimal[i] = String.format("%02X", hardwareAddress[i]);
-                }
-                MAC = String.join(":", hexadecimal);
-                System.out.println("MAC address: " + MAC);
-                return MAC;
-            } catch (UnknownHostException | SocketException | NullPointerException e) {
-                e.printStackTrace();
-            }
-        }
-        return "";
     }
 }
