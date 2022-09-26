@@ -1,14 +1,13 @@
 package frc.SpectrumLib.subsystems.linearMech;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import frc.SpectrumLib.subsystems.MotorSubsystem;
 
 public abstract class LinearMechSubsystem extends MotorSubsystem {
     public LinearMechConfig config;
 
-    public LinearMechSubsystem(LinearMechConfig config, WPI_TalonFX motorLeader) {
-        super(config, motorLeader);
+    public LinearMechSubsystem(LinearMechConfig config) {
+        super(config);
         this.config = config;
     }
 

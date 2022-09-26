@@ -17,10 +17,9 @@ public class MotorSubsystem extends SubsystemBase {
     public WPI_TalonFX motorLeader;
     public TalonFXSimCollection motorSim;
 
-    public MotorSubsystem(MotorSubsystemConfig config, WPI_TalonFX motorLeader) {
+    public MotorSubsystem(MotorSubsystemConfig config) {
         super();
         this.config = config;
-        this.motorLeader = motorLeader;
         motorSim = motorLeader.getSimCollection();
         setDefaultCommand(new RunCommand(() -> this.stop(), this));
     }

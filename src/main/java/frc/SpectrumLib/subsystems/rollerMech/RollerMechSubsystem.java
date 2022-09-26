@@ -6,17 +6,14 @@
 package frc.SpectrumLib.subsystems.rollerMech;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
-import edu.wpi.first.wpilibj2.command.RunCommand;
 import frc.SpectrumLib.subsystems.MotorSubsystem;
 
 public abstract class RollerMechSubsystem extends MotorSubsystem {
     public RollerMechConfig config;
 
-    public RollerMechSubsystem(RollerMechConfig config, WPI_TalonFX motorLeader) {
-        super(config, motorLeader);
+    public RollerMechSubsystem(RollerMechConfig config) {
+        super(config);
         this.config = config;
-        setDefaultCommand(new RunCommand(() -> this.stop(), this));
     }
 
     public void setVelocity(double velocity) {
