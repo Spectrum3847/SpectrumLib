@@ -23,7 +23,6 @@ public class MotorSubsystem extends SubsystemBase {
         setDefaultCommand(new RunCommand(() -> this.stop(), this));
     }
 
-    
     public void setupFalconLeader() {
         TalonFXSetup.configAllSetup(motorLeader, config.TalonFXConfig);
         motorLeader.setInverted(config.kInverted);

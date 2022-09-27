@@ -9,6 +9,7 @@ public class LinearServo extends Servo {
     double m_length;
     double setPos;
     double curPos;
+
     /**
      * Parameters for L16-R Actuonix Linear Actuators
      *

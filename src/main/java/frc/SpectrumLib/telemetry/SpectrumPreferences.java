@@ -1,4 +1,4 @@
-package frc.SpectrumLib.util;
+package frc.SpectrumLib.telemetry;
 
 import edu.wpi.first.wpilibj.Preferences;
 import java.util.Vector;

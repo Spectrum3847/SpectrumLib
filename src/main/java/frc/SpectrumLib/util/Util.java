@@ -10,6 +10,11 @@ public class Util {
     // Prevent this class from being instantiated.
     private Util() {}
 
+    public static String print(String message) {
+        System.out.println(message);
+        return message;
+    }
+
     /**
      * Limits the given input to the given magnitude.
      *

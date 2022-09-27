@@ -6,9 +6,9 @@ package frc.SpectrumLib.gamepads;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.SpectrumLib.util.Alert;
+import frc.SpectrumLib.telemetry.Alert;
 
-public class Gamepad extends SubsystemBase {
+public abstract class Gamepad extends SubsystemBase {
 
     public boolean configured = false;
     public XboxGamepad gamepad;
@@ -62,9 +62,9 @@ public class Gamepad extends SubsystemBase {
         configure();
     }
 
-    public void setupTeleopButtons() {}
+    public abstract void setupTeleopButtons();
 
-    public void setupDisabledButtons() {}
+    public abstract void setupDisabledButtons();
 
-    public void setupTestButtons() {}
+    public abstract void setupTestButtons();
 }
