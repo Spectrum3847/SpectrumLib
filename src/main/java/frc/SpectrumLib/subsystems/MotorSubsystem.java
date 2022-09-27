@@ -31,7 +31,7 @@ public class MotorSubsystem extends SubsystemBase {
     }
 
     public void setupFalconFollower(TalonFX motorFollower) {
-        setupFalconFollower(motorFollower, motorLeader, config.kFollowerInverted)
+        setupFalconFollower(motorFollower, motorLeader, config.kFollowerInverted);
     }
 
     public void setupFalconFollower(TalonFX motorFollower, TalonFX motorLeader, boolean inverted) {
