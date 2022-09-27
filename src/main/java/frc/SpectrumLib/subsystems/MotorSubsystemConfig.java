@@ -6,10 +6,8 @@ package frc.SpectrumLib.subsystems;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration;
-import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix.motorcontrol.can.TalonFXConfiguration;
 import com.ctre.phoenix.sensors.SensorInitializationStrategy;
-import frc.SpectrumLib.motorControllers.TalonFXSetup;
 
 /** Add your docs here. */
 public class MotorSubsystemConfig {
@@ -71,25 +69,5 @@ public class MotorSubsystemConfig {
         TalonFXConfig.closedloopRamp = closedLoopRamp;
         TalonFXConfig.voltageCompSaturation = voltageCompSaturation;
         TalonFXConfig.initializationStrategy = sensorStrat;
-    }
-
-    public void setupFalconLeader(TalonFX motor) {
-        TalonFXSetup.configAllSetup(motor, TalonFXConfig);
-        motor.setInverted(kInverted);
-        motor.setNeutralMode(kNeutralMode);
-    }
-
-    public void setupFalconFollower(TalonFX motorFollower, TalonFX motorLeader) {
-        TalonFXSetup.configFollowerSetup(motorFollower, TalonFXConfig);
-        motorFollower.setInverted(kFollowerInverted);
-        motorFollower.setNeutralMode(kNeutralMode);
-        motorFollower.follow(motorLeader);
-    }
-
-    public void setupFalconFollower(TalonFX motorFollower, TalonFX motorLeader, boolean inverted) {
-        TalonFXSetup.configFollowerSetup(motorFollower, TalonFXConfig);
-        motorFollower.setInverted(inverted);
-        motorFollower.setNeutralMode(kNeutralMode);
-        motorFollower.follow(motorLeader);
     }
 }
