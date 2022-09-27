@@ -1,6 +1,7 @@
 // Created by Spectrum3847 based on FRC#254 Util code
 package frc.SpectrumLib.util;
 
+import edu.wpi.first.wpilibj.DataLogManager;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.Timer;
 import java.util.List;
@@ -10,8 +11,14 @@ public class Util {
     // Prevent this class from being instantiated.
     private Util() {}
 
+    /**
+     * Prints a message to the console and logs it to the data logger.
+     *
+     * @param message The message to print and log.
+     * @return The message that was printed and logged.
+     */
     public static String print(String message) {
-        System.out.println(message);
+        DataLogManager.log(message);
         return message;
     }
 
