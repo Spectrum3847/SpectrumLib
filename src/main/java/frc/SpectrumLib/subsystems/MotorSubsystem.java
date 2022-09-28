@@ -5,7 +5,6 @@
 package frc.SpectrumLib.subsystems;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -27,17 +26,6 @@ public class MotorSubsystem extends SubsystemBase {
         TalonFXSetup.configAllSetup(motorLeader, config.TalonFXConfig);
         motorLeader.setInverted(config.kInverted);
         motorLeader.setNeutralMode(config.kNeutralMode);
-    }
-
-    public void setupFalconFollower(TalonFX motorFollower) {
-        setupFalconFollower(motorFollower, motorLeader, config.kFollowerInverted);
-    }
-
-    public void setupFalconFollower(TalonFX motorFollower, TalonFX motorLeader, boolean inverted) {
-        TalonFXSetup.configFollowerSetup(motorFollower, config.TalonFXConfig);
-        motorFollower.setInverted(inverted);
-        motorFollower.setNeutralMode(config.kNeutralMode);
-        motorFollower.follow(motorLeader);
     }
 
     public void setManualOutput(double speed) {
