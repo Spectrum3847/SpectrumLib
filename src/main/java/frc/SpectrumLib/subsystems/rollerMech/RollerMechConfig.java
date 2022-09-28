@@ -2,9 +2,7 @@
 
 package frc.SpectrumLib.subsystems.rollerMech;
 
-import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import edu.wpi.first.math.util.Units;
-import frc.SpectrumLib.motorControllers.TalonFXSetup;
 import frc.SpectrumLib.subsystems.MotorSubsystemConfig;
 
 public abstract class RollerMechConfig extends MotorSubsystemConfig {
@@ -34,18 +32,5 @@ public abstract class RollerMechConfig extends MotorSubsystemConfig {
     public RollerMechConfig(String name) {
         super(name);
         updateTalonFXConfig();
-    }
-
-    public void setupFalconLeader(TalonFX motor) {
-        TalonFXSetup.configAllSetup(motor, TalonFXConfig);
-        motor.setInverted(kInverted);
-        motor.setNeutralMode(kNeutralMode);
-    }
-
-    public void setupFalconFollower(TalonFX motorFollower, TalonFX motorLeader) {
-        TalonFXSetup.configFollowerSetup(motorFollower, TalonFXConfig);
-        motorFollower.setInverted(kFollowerInverted);
-        motorFollower.setNeutralMode(kNeutralMode);
-        motorFollower.follow(motorLeader);
     }
 }
