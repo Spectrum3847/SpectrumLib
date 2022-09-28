@@ -56,10 +56,6 @@ public class MotorSubsystem extends SubsystemBase {
         motorLeader.setSelectedSensorPosition(0);
     }
 
-    public double getCurrent() {
-        return motorLeader.getSupplyCurrent();
-    }
-
     public void setBrakeMode(boolean mode) {
         motorLeader.setNeutralMode(mode ? NeutralMode.Brake : NeutralMode.Coast);
     }
@@ -77,6 +73,30 @@ public class MotorSubsystem extends SubsystemBase {
     // Get Position
     public double getPosition() {
         return motorLeader.getSelectedSensorPosition();
+    }
+
+    public double getPercentOutput() {
+        return motorLeader.getMotorOutputPercent();
+    }
+
+    public double getOutputVoltage() {
+        return motorLeader.getMotorOutputVoltage();
+    }
+
+    public double getSupplyCurrent() {
+        return motorLeader.getSupplyCurrent();
+    }
+
+    public double getStatorCurrent() {
+        return motorLeader.getStatorCurrent();
+    }
+
+    public double getTemp() {
+        return motorLeader.getTemperature();
+    }
+
+    public double getFirmwareVersion() {
+        return motorLeader.getFirmwareVersion();
     }
 
     // Set Encoder

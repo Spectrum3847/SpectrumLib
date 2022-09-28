@@ -10,8 +10,10 @@ import com.ctre.phoenix.motorcontrol.can.TalonFXConfiguration;
 
 public class TalonFXSetup {
 
-    //These periods don't share any common factors, so they shouldn't run at the esame time.
-    private static int[] kPrimePeriods = new int[]{255, 254, 253, 251, 247, 241, 239, 233, 229, 227, 223, 217, 211, 199, 197};
+    // These periods don't share any common factors, so they shouldn't run at the esame time. 255 is
+    // max
+    private static int[] kPrimePeriods =
+            new int[] {255, 254, 253, 251, 247, 241, 239, 233, 229, 227, 223, 217, 211, 199, 197};
 
     /**
      * Sets up the TalonFX with the given configuration, enable voltage compensation at 12 volts Use
@@ -74,9 +76,8 @@ public class TalonFXSetup {
      * @param motor the motor controller to set up
      */
     public static void defaultStatusFrames(TalonFX motor) {
-        int slowTime = 255; //255 is Max
         motor.setStatusFramePeriod(StatusFrame.Status_1_General, 10);
-        motor.setStatusFramePeriod(StatusFrame.Status_2_Feedback0, 50);
+        motor.setStatusFramePeriod(StatusFrame.Status_2_Feedback0, 49);
         motor.setStatusFramePeriod(StatusFrame.Status_4_AinTempVbat, kPrimePeriods[0]);
         motor.setStatusFramePeriod(StatusFrame.Status_10_MotionMagic, kPrimePeriods[1]);
         motor.setStatusFramePeriod(StatusFrame.Status_12_Feedback1, kPrimePeriods[2]);
@@ -95,16 +96,13 @@ public class TalonFXSetup {
         // Default Status Rates are listed here:
         // https://docs.ctre-phoenix.com/en/stable/ch18_CommonAPI.html
         int fastTime = 100;
-        int slowTime = 500;
-        motor.setStatusFramePeriod(StatusFrame.Status_1_General, 10);
-        motor.setStatusFramePeriod(StatusFrame.Status_2_Feedback0, 20);
+        motor.setStatusFramePeriod(StatusFrame.Status_1_General, 9);
+        motor.setStatusFramePeriod(StatusFrame.Status_2_Feedback0, 19);
         motor.setStatusFramePeriod(StatusFrame.Status_4_AinTempVbat, fastTime);
-        motor.setStatusFramePeriod(StatusFrame.Status_10_MotionMagic, fastTime);
-        motor.setStatusFramePeriod(StatusFrame.Status_12_Feedback1, slowTime);
-        motor.setStatusFramePeriod(StatusFrame.Status_13_Base_PIDF0, fastTime);
-        motor.setStatusFramePeriod(StatusFrame.Status_14_Turn_PIDF1, slowTime);
-        motor.setStatusFramePeriod(StatusFrame.Status_17_Targets1, slowTime);
+        motor.setStatusFramePeriod(StatusFrame.Status_10_MotionMagic, fastTime + 1);
+        motor.setStatusFramePeriod(StatusFrame.Status_12_Feedback1, kPrimePeriods[6]);
+        motor.setStatusFramePeriod(StatusFrame.Status_13_Base_PIDF0, fastTime + 2);
+        motor.setStatusFramePeriod(StatusFrame.Status_14_Turn_PIDF1, kPrimePeriods[7]);
+        motor.setStatusFramePeriod(StatusFrame.Status_17_Targets1, kPrimePeriods[8]);
     }
-
-
 }
