@@ -10,6 +10,9 @@ import com.ctre.phoenix.motorcontrol.can.TalonFXConfiguration;
 
 public class TalonFXSetup {
 
+    //These periods don't share any common factors, so they shouldn't run at the esame time.
+    private static int[] kPrimePeriods = new int[]{255, 254, 253, 251, 247, 241, 239, 233, 229, 227, 223, 217, 211, 199, 197};
+
     /**
      * Sets up the TalonFX with the given configuration, enable voltage compensation at 12 volts Use
      * defaultStatusFrames
@@ -71,15 +74,15 @@ public class TalonFXSetup {
      * @param motor the motor controller to set up
      */
     public static void defaultStatusFrames(TalonFX motor) {
-        int slowTime = 500;
+        int slowTime = 255; //255 is Max
         motor.setStatusFramePeriod(StatusFrame.Status_1_General, 10);
         motor.setStatusFramePeriod(StatusFrame.Status_2_Feedback0, 50);
-        motor.setStatusFramePeriod(StatusFrame.Status_4_AinTempVbat, slowTime);
-        motor.setStatusFramePeriod(StatusFrame.Status_10_MotionMagic, slowTime);
-        motor.setStatusFramePeriod(StatusFrame.Status_12_Feedback1, slowTime);
-        motor.setStatusFramePeriod(StatusFrame.Status_13_Base_PIDF0, slowTime);
-        motor.setStatusFramePeriod(StatusFrame.Status_14_Turn_PIDF1, slowTime);
-        motor.setStatusFramePeriod(StatusFrame.Status_17_Targets1, slowTime);
+        motor.setStatusFramePeriod(StatusFrame.Status_4_AinTempVbat, kPrimePeriods[0]);
+        motor.setStatusFramePeriod(StatusFrame.Status_10_MotionMagic, kPrimePeriods[1]);
+        motor.setStatusFramePeriod(StatusFrame.Status_12_Feedback1, kPrimePeriods[2]);
+        motor.setStatusFramePeriod(StatusFrame.Status_13_Base_PIDF0, kPrimePeriods[3]);
+        motor.setStatusFramePeriod(StatusFrame.Status_14_Turn_PIDF1, kPrimePeriods[4]);
+        motor.setStatusFramePeriod(StatusFrame.Status_17_Targets1, kPrimePeriods[5]);
     }
 
     /**
@@ -102,4 +105,6 @@ public class TalonFXSetup {
         motor.setStatusFramePeriod(StatusFrame.Status_14_Turn_PIDF1, slowTime);
         motor.setStatusFramePeriod(StatusFrame.Status_17_Targets1, slowTime);
     }
+
+
 }
