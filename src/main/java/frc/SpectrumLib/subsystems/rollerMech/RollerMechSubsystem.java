@@ -5,7 +5,7 @@
 
 package frc.SpectrumLib.subsystems.rollerMech;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 import frc.SpectrumLib.subsystems.MotorSubsystem;
 
 public abstract class RollerMechSubsystem extends MotorSubsystem {
@@ -17,7 +17,7 @@ public abstract class RollerMechSubsystem extends MotorSubsystem {
     }
 
     public void setVelocity(double velocity) {
-        motorLeader.set(ControlMode.Velocity, velocity);
+        motorLeader.set(TalonFXControlMode.Velocity, velocity);
     }
 
     // Return Radians per sec velocity
