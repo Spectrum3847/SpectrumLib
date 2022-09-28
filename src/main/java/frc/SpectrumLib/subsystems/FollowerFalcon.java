@@ -6,7 +6,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.SpectrumLib.motorControllers.TalonFXSetup;
 
-/** Add your docs here. */
+/** Creates a FollowerFalcon for a subsystem */
 public class FollowerFalcon extends SubsystemBase {
     protected WPI_TalonFX motorFollower;
     protected int leaderID;
@@ -22,5 +22,9 @@ public class FollowerFalcon extends SubsystemBase {
     @Override
     public void periodic() {
         motorFollower.set(ControlMode.Follower, leaderID);
+    }
+
+    public WPI_TalonFX getWPI_TalonFX() {
+        return motorFollower;
     }
 }
