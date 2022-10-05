@@ -29,7 +29,9 @@ public class TelemetrySubsystem extends SubsystemBase {
                     new Runnable() {
                         public void run() {
                             while (true) {
-                                update();
+                                if (Timer.getFPGATimestamp() > 5) {
+                                    update();
+                                }
                                 Timer.delay(updateRate); // Loop runs at 5hz
                             }
                         }
