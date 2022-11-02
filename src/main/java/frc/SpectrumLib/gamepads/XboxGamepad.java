@@ -27,16 +27,16 @@ public class XboxGamepad extends Joystick {
         this.rightStick.setDeadband(rightXDeadband, rightYDeadband);
     }
 
-    public Button xButton = new Button(this, XboxButton.X);
-    public Button yButton = new Button(this, XboxButton.Y);
-    public Button aButton = new Button(this, XboxButton.A);
-    public Button bButton = new Button(this, XboxButton.B);
-    public Button rightBumper = new Button(this, XboxButton.RIGHT_BUMPER);
-    public Button leftBumper = new Button(this, XboxButton.LEFT_BUMPER);
-    public Button startButton = new Button(this, XboxButton.START);
-    public Button selectButton = new Button(this, XboxButton.SELECT);
-    public Button leftStickButton = new Button(this, XboxButton.LEFT_STICK);
-    public Button rightStickButton = new Button(this, XboxButton.RIGHT_STICK);
+    public SpectrumButton xButton = new SpectrumButton(this, XboxButton.X);
+    public SpectrumButton yButton = new SpectrumButton(this, XboxButton.Y);
+    public SpectrumButton aButton = new SpectrumButton(this, XboxButton.A);
+    public SpectrumButton bButton = new SpectrumButton(this, XboxButton.B);
+    public SpectrumButton rightBumper = new SpectrumButton(this, XboxButton.RIGHT_BUMPER);
+    public SpectrumButton leftBumper = new SpectrumButton(this, XboxButton.LEFT_BUMPER);
+    public SpectrumButton startButton = new SpectrumButton(this, XboxButton.START);
+    public SpectrumButton selectButton = new SpectrumButton(this, XboxButton.SELECT);
+    public SpectrumButton leftStickButton = new SpectrumButton(this, XboxButton.LEFT_STICK);
+    public SpectrumButton rightStickButton = new SpectrumButton(this, XboxButton.RIGHT_STICK);
 
     public AxisButton leftTriggerButton =
             new AxisButton(this, XboxAxis.LEFT_TRIGGER, .05, ThresholdType.GREATER_THAN);
