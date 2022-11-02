@@ -40,15 +40,13 @@ public class CustomLayout {
         return widget.getEntry();
     }
 
-    protected GenericEntry quickAddWidget(
-            String name, double defaultValue, int column, int row) {
+    protected GenericEntry quickAddWidget(String name, double defaultValue, int column, int row) {
         SimpleWidget widget = layout.add(name, defaultValue);
         widget.withPosition(column, row);
         return widget.getEntry();
     }
 
-    protected GenericEntry quickAddWidget(
-            String name, boolean defaultValue, int column, int row) {
+    protected GenericEntry quickAddWidget(String name, boolean defaultValue, int column, int row) {
         SimpleWidget widget = layout.add(name, defaultValue);
         widget.withPosition(column, row);
         return widget.getEntry();
