@@ -3,11 +3,8 @@
 package frc.SpectrumLib.gamepads.mapping;
 
 /**
- * This class maps the value of a stick input to an exponential curve. It is a subclass of <code>
- * Curve</code>.
- *
- * @author Justin Babilino
- * @version 0.0.3
+ * This class maps the value of a input to an exponential curve. It is a subclass of <code>
+ * Curve</code>. Modified to allow outptus larger than 1.0
  */
 public class ExpCurve extends Curve {
     /** The value of the base of the exponent used in calculating the curve. */
@@ -49,11 +46,6 @@ public class ExpCurve extends Curve {
     @Override
     public double calculateMappedVal(double input) {
         double val = calculateOffset(calculateScalar(calculateExpVal(calculateDeadzone(input))));
-        if (val > 1.0) {
-            val = 1.0;
-        } else if (val < -1.0) {
-            val = -1.0;
-        }
         return val;
     }
 

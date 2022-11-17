@@ -92,4 +92,8 @@ public class ThumbStick {
     public double getDirectionDegrees() {
         return Math.toDegrees(getDirectionRadians());
     }
+
+    public double getMagnitude() {
+        return Math.sqrt(Math.pow(getX(), 2) + Math.pow(getY(), 2));
+    }
 }
