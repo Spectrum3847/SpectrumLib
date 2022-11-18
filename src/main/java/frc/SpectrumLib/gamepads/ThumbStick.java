@@ -1,6 +1,7 @@
 // Created by Spectrum3847
 package frc.SpectrumLib.gamepads;
 
+import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.Joystick;
 import frc.SpectrumLib.gamepads.XboxGamepad.XboxAxis;
 import frc.SpectrumLib.gamepads.mapping.ExpCurve;
@@ -12,6 +13,9 @@ public class ThumbStick {
     XboxAxis yAxis;
     public final ExpCurve expXCurve;
     public final ExpCurve expYCurve;
+    private double lastAngle = 0;
+    private boolean yInvert = true;
+    private boolean xInvert = false;
 
     public ThumbStick(Joystick controller, XboxAxis xAxis, XboxAxis yAxis) {
         this.controller = controller;
@@ -39,16 +43,30 @@ public class ThumbStick {
             value = this.controller.getRawAxis(xAxis.value);
             value = expXCurve.calculateMappedVal(value);
         }
-        return value;
+        return value * (xInvert ? -1 : 1);
     }
 
+    // return getY inverted to make Y positive when joystick is pushed up
     public double getY() {
         double value = 0;
         if (this.controller.isConnected()) {
             value = this.controller.getRawAxis(yAxis.value);
             value = expYCurve.calculateMappedVal(value);
         }
-        return value;
+        return value * (yInvert ? -1 : 1);
+    }
+
+    public void setXinvert(boolean invert) {
+        xInvert = invert;
+    }
+
+    public void setYinvert(boolean invert) {
+        yInvert = invert;
+    }
+
+    public void setInvert(boolean xInvert, boolean yInvert) {
+        this.xInvert = xInvert;
+        this.yInvert = yInvert;
     }
 
     public void configXCurve(double expVal, double scalar) {
@@ -85,12 +103,25 @@ public class ThumbStick {
         setDeadband(deadzone, deadzone);
     }
 
+    /**
+     * Return the direction of the joystick in radians, returns last value if joystick is in
+     * deadzone 0 = up, pi/2 = right, pi = down, 3pi/2 = left
+     *
+     * @return the angle of the joysick
+     */
     public double getDirectionRadians() {
-        return Math.atan2(getX(), -getY());
+        if (getX() != 0 || getY() != 0) {
+            double angle = Math.atan2(getY(), getX()) - Math.PI / 2;
+            if (angle < 0) {
+                angle += 2 * Math.PI;
+            }
+            lastAngle = angle;
+        }
+        return lastAngle;
     }
 
     public double getDirectionDegrees() {
-        return Math.toDegrees(getDirectionRadians());
+        return Units.radiansToDegrees(getDirectionRadians());
     }
 
     public double getMagnitude() {
