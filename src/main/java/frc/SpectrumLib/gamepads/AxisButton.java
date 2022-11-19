@@ -52,10 +52,6 @@ public class AxisButton implements BooleanSupplier {
         this(joystick, axis.value, threshold, ThresholdType.DEADBAND);
     }
 
-    public Trigger trigger() {
-        return new Trigger(this);
-    }
-
     public boolean getAsBoolean() {
         switch (this.thresholdType) {
             case EXACT:
