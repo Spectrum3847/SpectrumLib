@@ -105,23 +105,34 @@ public class ThumbStick {
 
     /**
      * Return the direction of the joystick in radians, returns last value if joystick is in
-     * deadzone 0 = up, pi/2 = right, pi = down, 3pi/2 = left
+     * from fwd Positive 0, counter clockwise
+     * deadzone 0 = fwd, pi/2 = left, -pi = down, -pi/2 = right
      *
+     * @param fwdPositive the axis that represents the fwd direction
+     * @param leftPositive the axis that represents the left direction
      * @return the angle of the joysick
      */
-    public double getDirectionRadians() {
+    public double getDirectionRadians(double fwdPositive, double leftPositive) {
         if (getX() != 0 || getY() != 0) {
-            double angle = Math.atan2(getY(), getX()) - Math.PI / 2;
-            if (angle < 0) {
-                angle += 2 * Math.PI;
-            }
+            double angle = Math.atan2(leftPositive, fwdPositive);
             lastAngle = angle;
         }
         return lastAngle;
     }
-
-    public double getDirectionDegrees() {
-        return Units.radiansToDegrees(getDirectionRadians());
+    /**
+     * Return the direction of the joystick in radians, returns last value if joystick is in
+     * deadzone 0 = fwd, 90 = left, 180 = down, 270 = right
+     *
+     * @param fwdPositive the axis that represents the fwd direction
+     * @param leftPositive the axis that represents the left direction
+     * @return the angle of the joysick
+     */
+    public double getDirectionDegrees(double fwdPositive, double leftPositive) {
+        double angle = Units.radiansToDegrees(getDirectionRadians(fwdPositive, leftPositive));
+        if (angle < 0) {
+            angle += 360;
+        }
+        return angle;
     }
 
     public double getMagnitude() {

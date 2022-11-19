@@ -8,10 +8,19 @@ public class test extends TimedRobot {
     XboxGamepad controller = new XboxGamepad(0);
 
     @Override
-    public void robotInit() {}
+    public void robotInit() {
+        controller.leftStick.setXinvert(true);
+        controller.leftStick.setYinvert(true);
+    }
 
     @Override
     public void robotPeriodic() {
-        System.out.println(controller.leftStick.getDirectionDegrees());
+        System.out.println(
+                controller.leftStick.getDirectionDegrees(
+                        controller.leftStick.getY(), controller.leftStick.getX()));
+
+        System.out.println(
+                controller.leftStick.getDirectionRadians(
+                        controller.leftStick.getY(), controller.leftStick.getX()));
     }
 }
