@@ -20,29 +20,18 @@ public class Dpad {
 
     public Dpad(Joystick joystick) {
         this.joy = joystick;
-        this.Up =
-                new AxisButton(joy, XboxAxis.DPAD, XboxDpad.UP.value, ThresholdType.POV).trigger();
-        this.Down =
-                new AxisButton(joy, XboxAxis.DPAD, XboxDpad.DOWN.value, ThresholdType.POV)
-                        .trigger();
-        this.Left =
-                new AxisButton(joy, XboxAxis.DPAD, XboxDpad.LEFT.value, ThresholdType.POV)
-                        .trigger();
-        this.Right =
-                new AxisButton(joy, XboxAxis.DPAD, XboxDpad.RIGHT.value, ThresholdType.POV)
-                        .trigger();
+        this.Up = AxisButton.create(joy, XboxAxis.DPAD, XboxDpad.UP.value, ThresholdType.POV);
+        this.Down = AxisButton.create(joy, XboxAxis.DPAD, XboxDpad.DOWN.value, ThresholdType.POV);
+        this.Left = AxisButton.create(joy, XboxAxis.DPAD, XboxDpad.LEFT.value, ThresholdType.POV);
+        this.Right = AxisButton.create(joy, XboxAxis.DPAD, XboxDpad.RIGHT.value, ThresholdType.POV);
         this.UpLeft =
-                new AxisButton(joy, XboxAxis.DPAD, XboxDpad.UP_LEFT.value, ThresholdType.POV)
-                        .trigger();
+                AxisButton.create(joy, XboxAxis.DPAD, XboxDpad.UP_LEFT.value, ThresholdType.POV);
         this.UpRight =
-                new AxisButton(joy, XboxAxis.DPAD, XboxDpad.UP_RIGHT.value, ThresholdType.POV)
-                        .trigger();
+                AxisButton.create(joy, XboxAxis.DPAD, XboxDpad.UP_RIGHT.value, ThresholdType.POV);
         this.DownLeft =
-                new AxisButton(joy, XboxAxis.DPAD, XboxDpad.DOWN_LEFT.value, ThresholdType.POV)
-                        .trigger();
+                AxisButton.create(joy, XboxAxis.DPAD, XboxDpad.DOWN_LEFT.value, ThresholdType.POV);
         this.DownRight =
-                new AxisButton(joy, XboxAxis.DPAD, XboxDpad.DOWN_RIGHT.value, ThresholdType.POV)
-                        .trigger();
+                AxisButton.create(joy, XboxAxis.DPAD, XboxDpad.DOWN_RIGHT.value, ThresholdType.POV);
     }
 
     public double getValue() {

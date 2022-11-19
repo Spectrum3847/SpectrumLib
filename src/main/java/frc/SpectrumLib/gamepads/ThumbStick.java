@@ -104,9 +104,8 @@ public class ThumbStick {
     }
 
     /**
-     * Return the direction of the joystick in radians, returns last value if joystick is in
-     * from fwd Positive 0, counter clockwise
-     * deadzone 0 = fwd, pi/2 = left, -pi = down, -pi/2 = right
+     * Return the direction of the joystick in radians, returns last value if joystick is in from
+     * fwd Positive 0, counter clockwise deadzone 0 = fwd, pi/2 = left, -pi = down, -pi/2 = right
      *
      * @param fwdPositive the axis that represents the fwd direction
      * @param leftPositive the axis that represents the left direction
