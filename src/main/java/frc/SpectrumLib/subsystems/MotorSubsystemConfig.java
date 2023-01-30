@@ -30,8 +30,8 @@ public class MotorSubsystemConfig {
 
     /* Current Limiting */
     public int currentLimit = 40;
-    public int tirggerThresholdLimit = 45;
-    public double PeakCurrentDuration = 0.5;
+    public int tirggerThresholdLimit = 40;
+    public double PeakCurrentDuration = 0.0;
     public boolean EnableCurrentLimit = true;
     public SupplyCurrentLimitConfiguration supplyLimit =
             new SupplyCurrentLimitConfiguration(
