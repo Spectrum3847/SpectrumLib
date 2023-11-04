@@ -4,14 +4,14 @@
 
 package frc.SpectrumLib.telemetry;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.SpectrumLib.telemetry.Alert.AlertType;
 
 /**
  * A command that can be used to display an alert on the dashboard. Create the alert and sets status
  * to true when the command is initialized. Sets status to false when the command is ended.
  */
-public class AlertCommand extends CommandBase {
+public class AlertCommand extends Command {
     private Alert alert;
 
     public AlertCommand(String alertMessage) {

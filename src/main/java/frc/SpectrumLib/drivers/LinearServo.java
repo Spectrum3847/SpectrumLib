@@ -19,7 +19,7 @@ public class LinearServo extends Servo {
      */
     public LinearServo(int channel, int length, int speed) {
         super(channel);
-        setBounds(2.0, 1.8, 1.5, 1.2, 1.0);
+        setBoundsMicroseconds(2, 1, 1, 1, 1);
         m_length = length;
         m_speed = speed;
     }
